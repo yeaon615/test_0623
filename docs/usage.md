@@ -7,7 +7,7 @@ How to use DeSide
 
 ****
 
-**DeSide have three steps to deconvolution. Here are two ways to use DeSide, one can skip the first two steps and use the provided well-trained model to predict cell fractions directly, if you do not want to train DeSide model by yourself. Another way is run the  program  step by step from the first step of DeSide (DeSide Simulation), during the process, you can reform the single cell dataset, retrain the model by yourself. **
+**DeSide have three steps to deconvolution. Here are two ways to use DeSide, one can skip the first two steps and use the provided well-trained model to predict cell fractions directly, if you do not want to train DeSide model by yourself. Another way is run the  program  step by step from the first step of DeSide (DeSide Simulation), during the process, you can reform the single cell dataset, retrain the model by yourself.**
 
 
 
