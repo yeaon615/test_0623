@@ -224,27 +224,26 @@ Example files: You can download this file from [our results file]() (location: d
 
 We provided the datasets file with following directory tree structure, [you can download this file here](). Our datasets file contains all input datas and some intermediate output datas in our process by used DeSide. 
 
-
-
+```
 datasets/
 ├── cancer_purity/
 │   └── cancer_purity.csv
 ├── simulated_bulk_cell_dataset/
-│   ├── generated_frac\_\*\*.csv
-│   ├── simu_bulk_exp\_\*\*\_log2cpm1p.csv
-│   ├── simu_bulk_exp\_\*\*\_log2cpm1p.h5ad
-│   ├── simu_bulk_exp\_\*\*\_selected_cell_id.csv
+│   ├── generated_frac_**.csv
+│   ├── simu_bulk_exp_**_log2cpm1p.csv
+│   ├── simu_bulk_exp_**_log2cpm1p.h5ad
+│   ├── simu_bulk_exp_**_selected_cell_id.csv
 │   ├── sc_dataset/
 │   │   ├── generated_10_cell_type_n5000_pdac_pengj_02_pdac_steele_04.h5ad
 │   │   ├── generated_11_cell_type_n5000_all.h5ad
 │   │   ├── generated_8_cell_type_n5000_hnscc_cillo_01_hnscc_puram_03.h5ad
 │   │   └── generated_9_cell_type_n5000_luad_kim_05.h5ad
 │   └── test_set/
-│       ├── generated_frac\_\*\*.csv
-│       ├── simu_bulk_exp\_\*\*\_CPM.txt
-│       ├── simu_bulk_exp\_\*\*\_log2cpm1p.csv
-│       ├── simu_bulk_exp\_\*\*\_log2cpm1p.h5ad
-│       └── simu_bulk_exp\_\*\*\_selected_cell_id.csv
+│       ├── generated_frac_**.csv
+│       ├── simu_bulk_exp_**_CPM.txt
+│       ├── simu_bulk_exp_**_log2cpm1p.csv
+│       ├── simu_bulk_exp_**_log2cpm1p.h5ad
+│       └── simu_bulk_exp_**_selected_cell_id.csv
 ├── single_cell/
 │   ├── count_by_cell_type_and_dataset2.csv
 │   ├── merged_6_sc_datasets.h5ad
@@ -254,21 +253,24 @@ datasets/
 │   ├── gdc_sample_sheet_10_tumors.tsv
 │   ├── gencode.gene.info.v22.tsv
 │   ├── merged_data/
-│   │   └── \*\*/
-│   │       └── merged\_\*\*\_htseq.counts.csv
+│   │   └── **/
+│   │       └── merged_**_htseq.counts.csv
 │   └── tpm/
-│       └── \*\*/
-│            ├── \*\*\_htseq.counts.csv
-│            ├── \*\*\_log2tpm1p.csv
-│            └── \*\*\_TPM.csv
+│       └── **/
+│            ├── **_htseq.counts.csv
+│            ├── **_log2tpm1p.csv
+│            └── **_TPM.csv
 └── well_trained_model/
-    └── \*\*/
-        └── \*\*/
+    └── **/
+        └── **/
             ├── celltypes.txt
             ├── genes.txt
             ├── history_reg.csv
             ├── loss.png
-            └── model\_\*\*.h5
+            └── model_**.h5
+```
+
+
 
 
 
@@ -276,20 +278,19 @@ datasets/
 
 We provided the results file with following directory tree structure, [you can download this file here](). Our results file contains final results in our process by used DeSide. 
 
-
-
+```
 results/
 ├── predicted_cell_fraction/
-│   └── \*\*/
-│       ├── cell_fraction_by_DeSide\_\*\*/
-│       │   ├── cancer_purity_merged_DeSide\_\*\*\_predicted_result.csv
+│   └── **/
+│       ├── cell_fraction_by_DeSide_**/
+│       │   ├── cancer_purity_merged_DeSide_**_predicted_result.csv
 │       │   ├── CD8A_vs_predicted_CD8 T_proportion.png
 │       │   ├── CPE_vs_predicted_1-others_proportion.png
 │       │   ├── CPE_vs_predicted_Cancer Cells_proportion.png
 │       │   ├── pred_cell_frac_before_decon.png
 │       │   └── y_predicted_result.csv
-│       └── cell_fraction_by_Scaden\_\*\*/
-│           ├── cancer_purity_merged_Scaden\_\*\*\_predicted_result.csv
+│       └── cell_fraction_by_Scaden_**/
+│           ├── cancer_purity_merged_Scaden_**_predicted_result.csv
 │           ├── CD8A_vs_predicted_CD8 T_proportion.png
 │           ├── CPE_vs_predicted_1-others_proportion.png
 │           ├── CPE_vs_predicted_Cancer Cells_proportion.png
@@ -299,8 +300,8 @@ results/
 │           ├── pred_cell_frac_before_decon.png
 │           └── y_predicted_result.csv
 └── test_set_pred/
-    └── Test_set\*\*/
-        ├── DeSide\_\*\*/
+    └── Test_set**/
+        ├── DeSide_**/
         │   ├── Cancer Cells_true_vs_predicted_1-others_proportion.png
         │   ├── Cancer Cells_true_vs_predicted_Cancer Cells_pred_proportion.png
         │   ├── CD8 T_true_vs_predicted_CD8 T_pred_proportion.png
@@ -311,7 +312,7 @@ results/
         │   ├── y_true_vs_absolute_error_deside_1-others.png
         │   ├── y_true_vs_y_pred_deside.png
         │   └── y_true_vs_y_pred_deside_1-others.png
-        └── Scaden\_\*\*/
+        └── Scaden_**/
             ├── Cancer Cells_true_vs_predicted_Cancer Cells_pred_proportion.png
             ├── CD8 T_true_vs_predicted_CD8 T_pred_proportion.png
             ├── CD8A_vs_predicted_CD8 T_true_proportion.png
@@ -328,3 +329,7 @@ results/
             ├── y_true_vs_y_pred_m1024.png
             ├── y_true_vs_y_pred_m256.png
             └── y_true_vs_y_pred_m512.png
+```
+
+
+
