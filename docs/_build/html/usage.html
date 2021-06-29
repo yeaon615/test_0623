@@ -1,0 +1,691 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Usage &#8212; DEep-learning and SIngle-cell based DEconvolution</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <link rel="shortcut icon" href="_static/logo.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Datasets" href="datasets.html" />
+    <link rel="prev" title="Installation" href="installation.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">DEep-learning and SIngle-cell based DEconvolution</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="installation.html">
+   Installation
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Usage
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="datasets.html">
+   Datasets
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="functions.html">
+   Functions
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="func/single_cell.html">
+     Single Cell Preprocessing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="func/bulk_cell.html">
+     Bulk Cell Preprocessing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="func/simulation.html">
+     Simulation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="func/deconvolution.html">
+     Deconvolution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="func/plot.html">
+     Plot
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="func/utility.html">
+     Utility
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="changelog.html">
+   Change Log
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="contact.html">
+   Contact
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/OnlyBelter/DeSide">
+   GitHub repository
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/usage.md.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/OnlyBelter/DeSide"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/OnlyBelter/DeSide/issues/new?title=Issue%20on%20page%20%2Fusage.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/OnlyBelter/DeSide/edit/master/docs/usage.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deside-simulation">
+   DeSide Simulation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-using-the-single-cell-dataset-we-provided">
+     a. Using the single cell dataset we provided
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-preparing-single-cell-dataset-by-yourself">
+     b. Preparing single cell dataset by yourself
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#example-code-for-generating-a-training-set">
+       Example code for generating a training set
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#example-code-for-generating-a-test-set">
+       Example code for generating a test set
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#input-files">
+     Input files
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#output-files">
+     Output files
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deside-training">
+   DeSide Training
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-code">
+     Example code
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Input files
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Output files
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deside-prediction">
+   DeSide prediction
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Example code
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Input files
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Output files
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-processing">
+   Data Processing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Example code
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     Input files
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     Output files
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#directory-tree-structure-of-datasets">
+   Directory tree structure of
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     datasets
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#directory-tree-structure-of-results">
+   Directory tree structure of
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     results
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
+<p>How to use DeSide</p>
+<hr class="docutils" />
+<p>**DeSide have three steps to deconvolution. Here are two ways to use DeSide, one can skip the first two steps and use the provided well-trained model to predict cell fractions directly, if you do not want to train DeSide model by yourself. Another way is run the  program  step by step from the first step of DeSide (DeSide Simulation), during the process, you can reform the single cell dataset, retrain the model by yourself. **</p>
+<p>The workflow of deconvolution by DeSide consists of three steps:</p>
+<ol class="simple">
+<li><p>DeSide Simulation</p></li>
+<li><p>DeSide Training</p></li>
+<li><p>DeSide Prediction</p></li>
+</ol>
+<div class="section" id="deside-simulation">
+<h2>DeSide Simulation<a class="headerlink" href="#deside-simulation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="a-using-the-single-cell-dataset-we-provided">
+<h3>a. Using the single cell dataset we provided<a class="headerlink" href="#a-using-the-single-cell-dataset-we-provided" title="Permalink to this headline">¶</a></h3>
+<p>In this step, you can generate simulated bulk gene expression profiles (GEPs) based on single cell RNA-seq (scRNA-seq) dataset. We provided a merged dataset contains 6 scRNA-seq datasets so far: <code class="docutils literal notranslate"><span class="pre">merged_6_sc_datasets.h5ad</span></code>. You can use all (or part) of 6 scRNA-seq datasets when you call function <code class="docutils literal notranslate"><span class="pre">simulated_bulk_gep_generator()</span></code>. Generated GEPs can be used as <code class="docutils literal notranslate"><span class="pre">training</span> <span class="pre">set</span></code> for training DeSide model or <code class="docutils literal notranslate"><span class="pre">test</span> <span class="pre">set</span></code> for testing the model performance after training finished.</p>
+</div>
+<div class="section" id="b-preparing-single-cell-dataset-by-yourself">
+<h3>b. Preparing single cell dataset by yourself<a class="headerlink" href="#b-preparing-single-cell-dataset-by-yourself" title="Permalink to this headline">¶</a></h3>
+<p>If you want to use other scRNA-seq datasets to train DeSide, you can follow our workflow to preprocess single cell datasets and merge them together. Python package <code class="docutils literal notranslate"><span class="pre">Scanpy</span></code> was used heavily in our workflow.</p>
+<ul class="simple">
+<li><p>Preprocessing a single dataset: <span class="xref myst">Here is an example of how i process my scRNA-seq dataset(s)</span>.</p></li>
+<li><p>Merging multiple datasets together: <span class="xref myst">Here is an example of how i process my scRNA-seq dataset(s)</span>.</p></li>
+</ul>
+<p>Also read the section “1. Integrating single cell RNA-seq dataset” in supplementary material for more details.</p>
+<p><span class="xref myst">Explanation of parameters in this function can be found</span>.</p>
+<div class="section" id="example-code-for-generating-a-training-set">
+<h4>Example code for generating a training set<a class="headerlink" href="#example-code-for-generating-a-training-set" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">deside.simulation</span> <span class="kn">import</span> <span class="n">simulated_bulk_gep_generator</span>
+
+<span class="n">simulated_bulk_gep_generator</span><span class="p">(</span><span class="n">n_per_gradient</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> 
+                             <span class="n">result_dir</span><span class="o">=</span><span class="s2">&quot;path/result/bulk_simulate/&quot;</span><span class="p">,</span> <span class="n">n_sample_cell_type</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span> 
+                             <span class="n">merged_sc_dataset_file_path</span><span class="o">=</span><span class="s2">&quot;path/result/sc_datasets/file.h5ad &quot;</span><span class="p">,</span>                                  
+                             <span class="n">dataset_name</span><span class="o">=</span><span class="s2">&quot;Mixed_N100&quot;</span><span class="p">,</span> <span class="n">sc_dataset_id</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;all&quot;</span><span class="p">],</span> 
+                             <span class="n">generated_sc_dataset_dir</span><span class="o">=</span><span class="s2">&quot;path/result/bulk_simulate/sc_data/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-code-for-generating-a-test-set">
+<h4>Example code for generating a test set<a class="headerlink" href="#example-code-for-generating-a-test-set" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">deside.simulation</span> <span class="kn">import</span> <span class="n">simulated_bulk_gep_generator</span>
+
+<span class="n">simulated_bulk_gep_generator</span><span class="p">(</span><span class="n">n_per_gradient</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> 
+                             <span class="n">result_dir</span><span class="o">=</span><span class="s2">&quot;path/result/bulk_simulate/&quot;</span><span class="p">,</span> <span class="n">n_sample_cell_type</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span> 
+                             <span class="n">merged_sc_dataset_file_path</span><span class="o">=</span><span class="s2">&quot;path/result/sc_datasets/file.h5ad &quot;</span><span class="p">,</span> 
+                             <span class="n">cell_types</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Cancer Cells&#39;</span><span class="p">,</span> <span class="s1">&#39;CD4 T&#39;</span><span class="p">,</span> <span class="s1">&#39;CD8 T&#39;</span><span class="p">,</span> <span class="s1">&#39;Fibroblasts&#39;</span><span class="p">,</span> <span class="s1">&#39;DC&#39;</span><span class="p">,</span> <span class="s1">&#39;NK&#39;</span><span class="p">],</span> 
+                             <span class="n">gradient_range</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Cancer Cells&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="s1">&#39;CD8 T&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span> 
+                                             <span class="s1">&#39;Fibroblasts&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">100</span><span class="p">)},</span>
+                             <span class="n">dataset_name</span><span class="o">=</span><span class="s2">&quot;Test_set&quot;</span><span class="p">,</span> <span class="n">sc_dataset_id</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;all&quot;</span><span class="p">],</span> 
+                             <span class="n">generated_sc_dataset_dir</span><span class="o">=</span><span class="s2">&quot;path/result/bulk_simulate/sc_data/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="input-files">
+<h3>Input files<a class="headerlink" href="#input-files" title="Permalink to this headline">¶</a></h3>
+<p>The provided single cell dataset, <code class="docutils literal notranslate"><span class="pre">merged_6_sc_dataset.h5ad</span></code>,  is a <code class="docutils literal notranslate"><span class="pre">h5ad</span></code> file (see more details about this file format from <a class="reference external" href="https://anndata.readthedocs.io/en/latest/index.html">anndata</a>) which contains 6 scRNA-seq datasets and 11 cell types. You can download this file from <span class="xref myst">our datasets file</span> (location: “datasets/single_cell/merged_6_sc_datasets.h5ad”)</p>
+<ul>
+<li><p>merged_6_sc_dataset.h5ad</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">obs</span></code> contains the information of single cell samples such as sample id, cell type and dataset id.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">var</span></code> contains gene names of samples.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">X</span></code> is a matrix of gene expression profiles (GEPs, log space) with the shape of n_sample  by n_gene.</p></li>
+<li><p>6 scRNA-seq dataset ids: “hnscc_cillo_01”, “pdac_pengj_02”, “hnscc_puram_03”, “pdac_steele_04”, “luad_kim_05”, “nsclc_guo_06”</p></li>
+<li><p>11 cell types: B Cells, CD4 T, CD8 T, Cancer Cells, DC, Endothelial cells, Fibroblasts, Macrophages, Mast Cells, NK, Neutrophils.</p>
+<p>This file can be accessed by:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">anndata</span> <span class="k">as</span> <span class="nn">an</span>
+
+<span class="n">merged_sc_dataaset</span> <span class="o">=</span> <span class="n">an</span><span class="o">.</span><span class="n">read_h5ad</span><span class="p">(</span><span class="s1">&#39;path/to/merged_6_sc_dataset.h5ad&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">merged_sc_dataset</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># (67870, 11785)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="output-files">
+<h3>Output files<a class="headerlink" href="#output-files" title="Permalink to this headline">¶</a></h3>
+<p>File <code class="docutils literal notranslate"><span class="pre">simu_bulk_exp_xx_log2cpm1p.h5ad</span></code> can be used as input data of function <code class="docutils literal notranslate"><span class="pre">dnn_training()</span></code> for training model or function <code class="docutils literal notranslate"><span class="pre">dnn_predict()</span></code> for testing model performance.</p>
+<p><code class="docutils literal notranslate"><span class="pre">xx</span></code> in the following file name is same as the parameter <code class="docutils literal notranslate"><span class="pre">dataset_name</span></code>.</p>
+<ul class="simple">
+<li><p>generated_11_cell_type_n5000_all.h5ad: this is an intermediate file before simulating bulk GEPs. This file contains the generated single cell dataset that contains 11 cell types from all 6 scRNA-seq datasets and each cell type has 5000 samples if the parameters was set by <code class="docutils literal notranslate"><span class="pre">sc_dataset_id</span> <span class="pre">=</span> <span class="pre">['all'],</span> <span class="pre">n_sample_cell_type</span> <span class="pre">=</span> <span class="pre">5000</span></code>;</p></li>
+<li><p>generated_frac_xx_.csv: Cell fraction of each cell type per simulated bulk sample;</p></li>
+<li><p>simu_bulk_exp_xx_selected_cell_id.csv: Cell id of cells in merged_6_sc_dataset which were used in this simulated bulk data;</p></li>
+<li><p>simu_bulk_exp_xx_CPM.txt [optional]: GEPs of simulated bulk data were given in counts per million (CPM) if <code class="docutils literal notranslate"><span class="pre">save_tpm=True</span></code>.</p></li>
+<li><p>simu_bulk_exp_xx_log2cpm1p.csv: GEPs of simulated bulk data were given in log2(CPM+1).</p></li>
+<li><p>simu_bulk_exp_xx_log2cpm1p.h5ad: Contains the information of both gene expression ( given in  log2(CPM+1) ) and cell fraction of each cell type.</p></li>
+</ul>
+<p>Example files: You can downloda this files from <span class="xref myst">our datasets file</span> (location: datasets/simulated_bulk_cell_dataset).</p>
+</div>
+</div>
+<div class="section" id="deside-training">
+<h2>DeSide Training<a class="headerlink" href="#deside-training" title="Permalink to this headline">¶</a></h2>
+<p>Once the training set was set-up, you can start training a DeSide model with function <code class="docutils literal notranslate"><span class="pre">dnn_training()</span></code>.  <span class="xref myst">See details on this function</span>.</p>
+<div class="section" id="example-code">
+<h3>Example code<a class="headerlink" href="#example-code" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">deside.decon_cf</span> <span class="kn">import</span> <span class="n">dnn_training</span>
+
+<span class="n">dnn_training</span><span class="p">(</span><span class="s2">&quot;DeSide&quot;</span><span class="p">,</span> <span class="n">h5ad_file_path</span><span class="o">=</span><span class="s2">&quot;path/result/bulk_simulate/simu_bulk_exp_Mixed_N100_log2cpm1p.h5ad&quot;</span><span class="p">,</span>
+             <span class="n">result_dir</span><span class="o">=</span><span class="s2">&quot;path/result/DeSide_training/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>Input files<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>In this step, you can use the simulated bulk GEPs (training set) were saved in <code class="docutils literal notranslate"><span class="pre">.h5ad</span></code> file. This file usually generated from  <code class="docutils literal notranslate"><span class="pre">DeSide</span> <span class="pre">Simulation</span></code> step. The training set we used can be downloaded from <span class="xref myst">our datasets file</span> (location: datasets/simulated_bulk_cell_dataset/simu_bulk_exp_Mixed_N100_log2cpm1p.h5ad)</p>
+<p><code class="docutils literal notranslate"><span class="pre">xx</span></code> in the following file name is same as the parameter <code class="docutils literal notranslate"><span class="pre">dataset_name</span></code> in function <code class="docutils literal notranslate"><span class="pre">simulated_bulk_gep_generator</span></code>.</p>
+<ul class="simple">
+<li><p>simu_bulk_exp_xx_log2cpm1p.h5ad:	Contains information both of GEPs (count in log2(CPM+1) ) and fraction of cell types.</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h3>Output files<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>You will get 5 files in this step and details are show below. The whole result directory (same as parameter <code class="docutils literal notranslate"><span class="pre">result_dir</span></code>) can be used in the <code class="docutils literal notranslate"><span class="pre">DeSide</span> <span class="pre">prediction</span></code> step. <code class="docutils literal notranslate"><span class="pre">xx</span></code> in the following file name is same as the parameter <code class="docutils literal notranslate"><span class="pre">model_name</span></code> in function  <code class="docutils literal notranslate"><span class="pre">dnn_training()</span></code>.</p>
+<ul class="simple">
+<li><p>celltypes.txt:	Cell types which were used in the training process.</p></li>
+<li><p>genes.txt:	Genes which were used in the training process.</p></li>
+<li><p>history_reg.csv: …</p></li>
+<li><p>loss.png: …</p></li>
+<li><p>model_xx.h5: Well-trained model.</p></li>
+</ul>
+<p>Example files: You can downloda this file from <span class="xref myst">our datasets file</span> (location: datasets/well_trained_model).     #目录指定到最好的模型目录？</p>
+</div>
+</div>
+<div class="section" id="deside-prediction">
+<h2>DeSide prediction<a class="headerlink" href="#deside-prediction" title="Permalink to this headline">¶</a></h2>
+<p>After training by simulated bulk GEPs, You can predict the cell fractions of each cell type by well-trained model with function <code class="docutils literal notranslate"><span class="pre">dnn_prediction()</span></code>. <span class="xref myst">See details on this function</span>.</p>
+<p>you can use the following command to perform the deconvolution:</p>
+<div class="section" id="id3">
+<h3>Example code<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">deside.decon_cf</span> <span class="kn">import</span> <span class="n">dnn_prediction</span>
+
+<span class="n">dnn_prediction</span><span class="p">(</span><span class="n">model_name</span><span class="o">=</span><span class="s2">&quot;DeSide&quot;</span><span class="p">,</span> <span class="n">model_dir</span><span class="o">=</span><span class="s2">&quot;path/result/DeSide_training/&quot;</span><span class="p">,</span>
+               <span class="n">cancer_type</span><span class="o">=</span><span class="s1">&#39;ACC&#39;</span><span class="p">,</span>
+               <span class="n">bulk_exp_fp</span><span class="o">=</span><span class="s2">&quot;path/ACC_TPM.csv&quot;</span><span class="p">,</span>
+               <span class="n">result_dir</span><span class="o">=</span><span class="s2">&quot;path/DeSide_prediction/&quot;</span><span class="p">,</span> <span class="n">exp_type</span><span class="o">=</span><span class="s2">&quot;TPM&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>Input files<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>In this step, you can use the whole result directory of <code class="docutils literal notranslate"><span class="pre">result_dir</span></code> in <code class="docutils literal notranslate"><span class="pre">DeSide</span> <span class="pre">train</span></code> step as the input of  parameter <code class="docutils literal notranslate"><span class="pre">model_dir</span></code>, <strong><span class="xref myst">or you can download our best well_trained model file from datasets file</span> (location: datasets/well_trained_model/DeSide) and use the real directory in your computer.</strong> Besides, bulk GEPs need to be delivered which were given in transcripts per million (TPM) or log2(TPM + 1). It should be separated by ‘,’  and saved in a <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file. The shape of this file should be m×n, where m is the number of features (genes) and n is the number of samples. You can download an example file from <span class="xref myst">our datasets file</span> (location: datasets\TCGA\tpm). If you have not this format of bulk GEPs file, DeSide can only provide functionality to create a file of correct format from TCGA read count data(S) (<strong>?</strong>). Have a look at the <span class="xref myst">Data Processing</span> section for instructions on how to use this function.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">model_dir</span></code>: …</p></li>
+<li><p>xx.csv: Bulk GEPs.</p></li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h3>Output files<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>You will get a <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file which contains cell fraction on each cell type per sample. <code class="docutils literal notranslate"><span class="pre">xx</span></code> in the following file name is same as the parameter <code class="docutils literal notranslate"><span class="pre">model_name</span></code> in function  <code class="docutils literal notranslate"><span class="pre">dnn_prediction()</span></code>. <strong>?</strong></p>
+<ul class="simple">
+<li><p>cancer_purity_merged_xx_predicted_result.csv: Predicted cell fractions, sample by cell type.</p></li>
+</ul>
+<p>Example files: You can download this file from <span class="xref myst">our results file</span> (location: results/predicted_cell_fraction).</p>
+</div>
+</div>
+<div class="section" id="data-processing">
+<h2>Data Processing<a class="headerlink" href="#data-processing" title="Permalink to this headline">¶</a></h2>
+<p>We provide function <code class="docutils literal notranslate"><span class="pre">read_counts2tpm()</span></code>  to create a file of correct format from TCGA read count data(s), <span class="xref myst">See details on this function</span>.</p>
+<div class="section" id="id6">
+<h3>Example code<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">deside.bulk_cell</span> <span class="kn">import</span> <span class="n">read_counts2tpm</span>
+
+<span class="n">read_counts2tpm</span><span class="p">(</span><span class="n">read_counts_file_path</span><span class="o">=</span><span class="s1">&#39;path/ACC_htseq.counts.csv&#39;</span><span class="p">,</span> <span class="n">file_name_prefix</span><span class="o">=</span><span class="s1">&#39;ACC&#39;</span><span class="p">,</span>
+                <span class="n">annotation_file_path</span><span class="o">=</span><span class="s1">&#39;path/gencode.gene.info.v22.tsv&#39;</span><span class="p">,</span> <span class="n">result_dir</span><span class="o">=</span><span class="s1">&#39;path/result/bulk_GEPs/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>Input files<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>In this step, TCGA read counts data (htseq.counts) in a .csv file (separated by “,”)  or .txt file (separated by “\t”) should be prepared. This file has the shape of m×n, where m is the number of features (genes) and n is the number of samples. You can download an example file from <span class="xref myst">our datasets file</span> (location: datasets\TCGA\merged_data). Besides, file <code class="docutils literal notranslate"><span class="pre">gencode.gene.info.v22.tsv</span></code> for .. is also need, you can download this file from <span class="xref myst">our datasets file</span> (location: datasets\TCGA\gencode.gene.info.v22.tsv)</p>
+<ul class="simple">
+<li><p>xx.csv: TCGA read counts data.</p></li>
+<li><p>gencode.gene.info.v22.tsv:	?</p></li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h3>Output files<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>You will get 3 files transfer from TCGA read counts data, details  show below. <code class="docutils literal notranslate"><span class="pre">xx</span></code> in the following file name is same as the parameter <code class="docutils literal notranslate"><span class="pre">file_name_prefix</span></code> in function  <code class="docutils literal notranslate"><span class="pre">read_counts2tpm()</span></code>.</p>
+<ul class="simple">
+<li><p>xx_htseq.counts.csv:	TCGA read counts data(?).</p></li>
+<li><p>xx_TPM.csv: GEPs given in TPM.</p></li>
+<li><p>xx_log2tpm1p.csv: GEPs given in log2(TPM + 1).</p></li>
+</ul>
+<p>Example files: You can download this file from <span class="xref myst">our results file</span> (location: datasets\TCGA\tpm).</p>
+</div>
+</div>
+<div class="section" id="directory-tree-structure-of-datasets">
+<h2>Directory tree structure of <code class="docutils literal notranslate"><span class="pre">datasets</span></code><a class="headerlink" href="#directory-tree-structure-of-datasets" title="Permalink to this headline">¶</a></h2>
+<p>We provided the datasets file with following directory tree structure, <span class="xref myst">you can download this file here</span>. Our datasets file contains all input datas and some intermediate output datas in our process by used DeSide.</p>
+<p>datasets/
+├── cancer_purity/
+│   └── cancer_purity.csv
+├── simulated_bulk_cell_dataset/
+│   ├── generated_frac_**.csv
+│   ├── simu_bulk_exp_**_log2cpm1p.csv
+│   ├── simu_bulk_exp_**_log2cpm1p.h5ad
+│   ├── simu_bulk_exp_**_selected_cell_id.csv
+│   ├── sc_dataset/
+│   │   ├── generated_10_cell_type_n5000_pdac_pengj_02_pdac_steele_04.h5ad
+│   │   ├── generated_11_cell_type_n5000_all.h5ad
+│   │   ├── generated_8_cell_type_n5000_hnscc_cillo_01_hnscc_puram_03.h5ad
+│   │   └── generated_9_cell_type_n5000_luad_kim_05.h5ad
+│   └── test_set/
+│       ├── generated_frac_**.csv
+│       ├── simu_bulk_exp_**_CPM.txt
+│       ├── simu_bulk_exp_**_log2cpm1p.csv
+│       ├── simu_bulk_exp_**_log2cpm1p.h5ad
+│       └── simu_bulk_exp_**_selected_cell_id.csv
+├── single_cell/
+│   ├── count_by_cell_type_and_dataset2.csv
+│   ├── merged_6_sc_datasets.h5ad
+│   ├── merged_6_sc_datasets.rar
+│   └── merged_single_cell_dataset_sample_info.csv
+├── TCGA/
+│   ├── gdc_sample_sheet_10_tumors.tsv
+│   ├── gencode.gene.info.v22.tsv
+│   ├── merged_data/
+│   │   └── **/
+│   │       └── merged_**_htseq.counts.csv
+│   └── tpm/
+│       └── **/
+│            ├── **_htseq.counts.csv
+│            ├── **_log2tpm1p.csv
+│            └── **_TPM.csv
+└── well_trained_model/
+└── **/
+└── **/
+├── celltypes.txt
+├── genes.txt
+├── history_reg.csv
+├── loss.png
+└── model_**.h5</p>
+</div>
+<div class="section" id="directory-tree-structure-of-results">
+<h2>Directory tree structure of <code class="docutils literal notranslate"><span class="pre">results</span></code><a class="headerlink" href="#directory-tree-structure-of-results" title="Permalink to this headline">¶</a></h2>
+<p>We provided the results file with following directory tree structure, <span class="xref myst">you can download this file here</span>. Our results file contains final results in our process by used DeSide.</p>
+<p>results/
+├── predicted_cell_fraction/
+│   └── **/
+│       ├── cell_fraction_by_DeSide_**/
+│       │   ├── cancer_purity_merged_DeSide_**_predicted_result.csv
+│       │   ├── CD8A_vs_predicted_CD8 T_proportion.png
+│       │   ├── CPE_vs_predicted_1-others_proportion.png
+│       │   ├── CPE_vs_predicted_Cancer Cells_proportion.png
+│       │   ├── pred_cell_frac_before_decon.png
+│       │   └── y_predicted_result.csv
+│       └── cell_fraction_by_Scaden_**/
+│           ├── cancer_purity_merged_Scaden_**_predicted_result.csv
+│           ├── CD8A_vs_predicted_CD8 T_proportion.png
+│           ├── CPE_vs_predicted_1-others_proportion.png
+│           ├── CPE_vs_predicted_Cancer Cells_proportion.png
+│           ├── pred_by_model_m1024.csv
+│           ├── pred_by_model_m256.csv
+│           ├── pred_by_model_m512.csv
+│           ├── pred_cell_frac_before_decon.png
+│           └── y_predicted_result.csv
+└── test_set_pred/
+└── Test_set**/
+├── DeSide_**/
+│   ├── Cancer Cells_true_vs_predicted_1-others_proportion.png
+│   ├── Cancer Cells_true_vs_predicted_Cancer Cells_pred_proportion.png
+│   ├── CD8 T_true_vs_predicted_CD8 T_pred_proportion.png
+│   ├── CD8A_vs_predicted_CD8 T_true_proportion.png
+│   ├── model_performance_evaluation.csv
+│   ├── y_predicted_result.csv
+│   ├── y_true_vs_absolute_error_deside.png
+│   ├── y_true_vs_absolute_error_deside_1-others.png
+│   ├── y_true_vs_y_pred_deside.png
+│   └── y_true_vs_y_pred_deside_1-others.png
+└── Scaden_**/
+├── Cancer Cells_true_vs_predicted_Cancer Cells_pred_proportion.png
+├── CD8 T_true_vs_predicted_CD8 T_pred_proportion.png
+├── CD8A_vs_predicted_CD8 T_true_proportion.png
+├── model_performance_evaluation.csv
+├── pred_by_model_m1024.csv
+├── pred_by_model_m256.csv
+├── pred_by_model_m512.csv
+├── y_predicted_result.csv
+├── y_true_vs_absolute_error_average.png
+├── y_true_vs_absolute_error_m1024.png
+├── y_true_vs_absolute_error_m256.png
+├── y_true_vs_absolute_error_m512.png
+├── y_true_vs_y_pred_average.png
+├── y_true_vs_y_pred_m1024.png
+├── y_true_vs_y_pred_m256.png
+└── y_true_vs_y_pred_m512.png</p>
+</div>
+</div>
+
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="installation.html" title="previous page">Installation</a>
+    <a class='right-next' id="next-link" href="datasets.html" title="next page">Datasets</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Xin Xiong<br/>
+        
+            &copy; Copyright 2021, iSynBio.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
