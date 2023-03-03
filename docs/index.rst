@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to DeSide's documentation!
+Welcome to DeSide's documentation11!
 ==================================
 
 What is DeSide?
