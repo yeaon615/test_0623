@@ -11,7 +11,7 @@ How to use DeSide
 
 
 
-The workflow of deconvolution by DeSide consists of three steps_:
+The workflow of deconvolution by DeSide consists of three steps:
 
 1.  DeSide Simulation
 2.  DeSide Training
