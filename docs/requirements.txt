@@ -1,3 +1,4 @@
 sphinx == 3.5.4
 myst_parser
 sphinx_book_theme
+Jinja2 < 3.1
