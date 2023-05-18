@@ -23,7 +23,7 @@ The workflow of deconvolution by DeSide consists of three steps:
 
 ### a. Using the single cell dataset we provided
 
-In this step, you can generate simulated bulk gene expression profiles (GEPs) based on single cell RNA-seq (scRNA-seq) dataset. We provided a merged dataset contains 6 scRNA-seq datasets so far: `merged_6_sc_datasets.h5ad`. You can use all (or part) of 6 scRNA-seq datasets when you call function `simulated_bulk_gep_generator()`. Generated GEPs can be used as `training set` for training DeSide model or `test set` for testing the model performance after training finished.
+In this step, you can generate simulated bulk gene expression profiles (GEPs) based on single cell RNA-seq (scRNA-seq) dataset. We provided a merged dataset contains 6 scRNA-seq datasets so far: `merged_6_sc_datasets.h5ad`. You can use all (or part) of 6 scRNA-seq datasets when you call function `simulated_bulk_gep_generator()`. Generated GEPs can be used as `training set` for training DeSide model or `test set` for testing the model performance after training finished_.
 
 ### b. Preparing single cell dataset by yourself
 
